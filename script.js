@@ -1,3 +1,12 @@
+function loadImage(image) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.src = `./images/lowres/${image}`;
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+  });
+}
+
 function populateImageGallery(low_res_image, high_res_image, title) {
   // Create a container for the image
   const imageBox = document.createElement("div");
@@ -9,13 +18,21 @@ function populateImageGallery(low_res_image, high_res_image, title) {
   _image.setAttribute("data-lightbox", `image-${high_res_image}`);
   _image.setAttribute("data-title", title || low_res_image);
 
-  // Create an image element with a low-resolution source and alt text
-  const img = document.createElement("img");
-  img.src = `./images/lowres/${low_res_image}`;
-  img.alt = low_res_image;
+  // Create a placeholder image element with alt text
+  const imgPlaceholder = document.createElement("img");
+  imgPlaceholder.src = "placeholder.png";
+  imgPlaceholder.alt = low_res_image;
+  _image.appendChild(imgPlaceholder);
 
-  // Append the image to the link and the link to the container
-  _image.appendChild(img);
+  // Load the low-resolution image and replace the placeholder image with it
+  loadImage(low_res_image)
+    .then((img) => {
+      _image.removeChild(imgPlaceholder);
+      _image.appendChild(img);
+    })
+    .catch((err) => console.error(err));
+
+  // Append the link to the container
   imageBox.appendChild(_image);
 
   // Return the container
