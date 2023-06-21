@@ -18,19 +18,17 @@ function populateImageGallery(low_res_image, high_res_image, title) {
   _image.setAttribute("data-lightbox", `image-${high_res_image}`);
   _image.setAttribute("data-title", title || low_res_image);
 
-  // Create a placeholder image element with alt text
-  const imgPlaceholder = document.createElement("img");
-  imgPlaceholder.src = "placeholder.png";
-  imgPlaceholder.alt = low_res_image;
-  _image.appendChild(imgPlaceholder);
 
-  // Load the low-resolution image and replace the placeholder image with it
-  loadImage(low_res_image)
+    loadImage(low_res_image)
     .then((img) => {
-      _image.removeChild(imgPlaceholder);
       _image.appendChild(img);
     })
-    .catch((err) => console.error(err));
+    .catch(() => {
+      const imgPlaceholder = document.createElement("img");
+      imgPlaceholder.src = "placeholder.png";
+      imgPlaceholder.alt = low_res_image;
+      _image.appendChild(imgPlaceholder);
+    });
 
   // Append the link to the container
   imageBox.appendChild(_image);
