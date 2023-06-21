@@ -9,9 +9,9 @@
     <!-- stylesheet -->
     <link rel="stylesheet" href="style.css" />
     <!-- lightbox2 CSS -->
-    <link rel="stylesheet" href="lightbox/lightbox.css" />
+    <link rel="stylesheet" href="assets/lightbox/lightbox.css" />
   </head>
-  <body >
+  <body>
     <div class="main">
       <header>
         <h1>Raj's Photography</h1>
@@ -28,7 +28,12 @@
 
     <!-- Javascript -->
     <script src="script.js"></script>
-    <script src="lightbox/jquery.js"></script>
-    <script src="lightbox/lightbox.js"></script>
+    <script src="assets/lightbox/jquery.js"></script>
+    <script src="assets/lightbox/lightbox.js"></script>
+    <script>
+      lightbox.option({
+        'disableScrolling': true,
+      })
+    </script>
   </body>
 </html>

@@ -25,7 +25,7 @@ function populateImageGallery(low_res_image, high_res_image, title) {
     })
     .catch(() => {
       const imgPlaceholder = document.createElement("img");
-      imgPlaceholder.src = "placeholder.png";
+      imgPlaceholder.src = "assets/placeholder.png";
       imgPlaceholder.alt = low_res_image;
       _image.appendChild(imgPlaceholder);
     });
