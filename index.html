@@ -34,11 +34,19 @@
     <script src="script.js"></script>
     <script src="assets/lightbox/jquery.js"></script>
     <script src="assets/lightbox/lightbox.js"></script>
+    <script src="assets/luxy.min.js" charset="utf-8"></script>
     <script>
       // Set lightbox (image viewer) options
       lightbox.option({
         'disableScrolling': true,
+        fadeDuration: 300,
+        imageFadeDuration: 300,
+        resizeDuration: 400,
       })
+
+      // Initialize luxy smooth scroll
+      luxy.init();
+
     </script>
   </body>
 </html>
