@@ -3,13 +3,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   /*margin-top: 30px;*/
   margin: 0;
   padding: 0;
   font-family: "source sans pro", sans-serif;
-  background: url("assets/background.png") no-repeat fixed center;
+  background: url("assets/dark-background.png") no-repeat fixed center;
   background-size: auto 100vh; /* Adjust the background size */
   /*background-position: center; !* Center the background horizontally *!*/
   display: flex;
